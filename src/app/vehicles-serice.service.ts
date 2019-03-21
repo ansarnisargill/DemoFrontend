@@ -13,7 +13,7 @@ export class VehiclesService {
   public VehiclesFromExcel: Vehicle[] = [];
   public VehicleToEdit: Vehicle = new Vehicle();
   constructor(private http: HttpClient) {
-    this.ApiAddress = 'https://localhost:5001/api/vehicle';
+    this.ApiAddress = 'https://demogeneral.herokuapp.com/api/vehicle';
   }
   GetAllVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(this.ApiAddress);

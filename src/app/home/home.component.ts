@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ConnectivityError = false;
   RecordDeleted = false;
 
-  constructor(public vehicleService: VehiclesService, private router: Router) {
+  constructor(private vehicleService: VehiclesService, private router: Router) {
     this.PutDataInTable();
   }
   PutDataInTable() {
@@ -39,6 +39,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.vehicleService.addedNewRecord = false;
   }
   Edit(v: Vehicle) {
+    console.log(v);
+    
     this.vehicleService.VehicleToEdit = v;
     this.router.navigateByUrl('/edit');
     this.vehicleService.EditedVehicle=false;

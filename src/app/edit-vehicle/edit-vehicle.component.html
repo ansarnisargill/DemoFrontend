@@ -1,42 +1,85 @@
-<div class="card ">
-  <div class="card-header text-center">
-    Edit Vehicle
+<section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Vehicle Registry
+      </h1>
+      <h2 class="subtitle">
+        Edit Vehicle Data
+      </h2>
+
+    </div>
   </div>
-  <div class="card-body">
-    <form class="col-lg-6 col-12 col-md-8 offset-lg-3 offset-md-3" ngNativeValidate (ngSubmit)="SubmitData()"
-      >
-      <label for="regNo" class="m-1">Reg No:</label>
-      <input type="text" required [(ngModel)]="vehicleToEdit.regNo" class="form-control m-1"  name="regNo" id="regNo"
-       placeholder="Reg No" >
-      <label for="make" class="m-1">Make:</label>
-      <input type="text" required ngModel class="form-control m-1" [(ngModel)]="vehicleToEdit.make" name="make" id="make" placeholder="Make">
-      <label for="model" class="m-1">Model :</label>
-      <input type="text" required ngModel class="form-control m-1" name="model" [(ngModel)]="vehicleToEdit.model" id="model" placeholder="Model">
-      <label for="color" class="m-1">Color :</label>
-
-      <input type="text" required ngModel class="form-control m-1" name="color" [(ngModel)]="vehicleToEdit.color" id="color" placeholder="Color">
-      <label for="engineNo" class="m-1">Engine No:</label>
-      <input type="text" required ngModel class="form-control m-1" [(ngModel)]="vehicleToEdit.engineNo" name="engineNo" id=engineNo placeholder="Engine No">
-      <label for="chasisNo" class="m-1">Chasis No:</label>
-      <input type="text" required ngModel class="form-control m-1" [(ngModel)]="vehicleToEdit.chasisNo" name="chasisNo" id="chasisNo"
-        placeholder="Chasis No">
-      <label for="dateOfPurchase" class="m-1">Date Of Purchase:</label>
-      <input type="date" required ngModel class="form-control m-1"  name="dateOfPurchase" id="dateOfPurchase"
-        placeholder="Date Of Purchase">
-      <label for="active" class="m-1">Active? :</label>
-      <select name="active" id="active" [(ngModel)]="vehicleToEdit.active" class="form-control m-1">
-        <option value="true" >Active</option>
-        <option value="false">Not Active</option>
-      </select>
-
-
-
-      <input type="submit" class="btn btn-outline-primary " value="Save" />
-
-
-    </form>
-  </div>
-  <div class="card-footer">
-    <button class="btn btn-link" (click)="GoBack()"> Go To Main</button>
-  </div>
+</section>
+<br>
+<div class="container box column is-6 is-offset-3">
+  <form ngNativeValidate (ngSubmit)="SubmitData()">
+    <div class="field">
+      <label for="regNo" class="label">Reg No:</label>
+      <div class="control">
+        <input type="text" required [(ngModel)]="vehicleToEdit.regNo" class="input" name="regNo" id="regNo"
+          placeholder="Reg No">
+      </div>
+    </div>
+    <div class="field">
+      <label for="make" class="label">Make:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" [(ngModel)]="vehicleToEdit.make" name="make" id="make"
+          placeholder="Make">
+      </div>
+    </div>
+    <div class="field">
+      <label for="model" class="label">Model :</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="model" [(ngModel)]="vehicleToEdit.model" id="model"
+          placeholder="Model">
+      </div>
+    </div>
+    <div class="field">
+      <label for="color" class="label">Color :</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="color" [(ngModel)]="vehicleToEdit.color" id="color"
+          placeholder="Color">
+      </div>
+    </div>
+    <div class="field">
+      <label for="engineNo" class="lable">Engine No:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" [(ngModel)]="vehicleToEdit.engineNo" name="engineNo"
+          id=engineNo placeholder="Engine No">
+      </div>
+    </div>
+    <div class="field">
+      <label for="chasisNo" class="label">Chasis No:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" [(ngModel)]="vehicleToEdit.chasisNo" name="chasisNo"
+          id="chasisNo" placeholder="Chasis No">
+      </div>
+    </div>
+    <div class="field">
+      <label for="dateOfPurchase" class="label">Date Of Purchase:</label>
+      <div class="control">
+        <input type="date" required ngModel class="input" name="dateOfPurchase" id="dateOfPurchase"
+          placeholder="Date Of Purchase">
+      </div>
+    </div>
+    <div class="field">
+      <label for="active" class="label">Active? :</label>
+      <div class="control">
+        <div class="select">
+          <select name="active" id="active" [(ngModel)]="vehicleToEdit.active">
+            <option value="true">Active</option>
+            <option value="false">Not Active</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <input type="submit" class="button is-outlined is-info is-fullwidth" value="Save" />
+    </div>
+  </form>
+</div>
+<br>
+<div class="container has-text-centered" style="margin-bottom: 10px;">
+  <button  class="button is-outlined is-primary" (click)="GoBack()"> Go To Main</button>
 </div>

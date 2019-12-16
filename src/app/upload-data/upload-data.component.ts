@@ -100,4 +100,7 @@ export class UploadDataComponent implements OnInit {
   GoBack() {
     this.router.navigateByUrl('/home');
   }
+  HideElement(element: HTMLElement) {
+    element.style.display = 'none';
+  }
 }

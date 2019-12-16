@@ -1,53 +1,108 @@
-<div *ngIf="FileSelectionError" class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>{{ErrorHeader}}</strong> {{ErrorText}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
+<section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Vehicle Registry
+      </h1>
+      <h2 class="subtitle">
+        Upload / Save Vehicle Data
+      </h2>
+    </div>
+  </div>
+</section>
+<br>
+
+<div class="notification is-danger column is-4 is-offset-4" #error *ngIf="FileSelectionError">
+  <button class="delete" (click)="HideElement(error)"></button>
+  <h1 class="is-bold">{{ErrorHeader}}</h1>
+  {{ErrorText}}
 </div>
 
-
-<div class="card text-center">
-    <div class="card-header">
-        Upload Excel File
+<div class="box has-text-centered column is-6 is-offset-3">
+  <h2 class="title">
+    Upload Excel File
+  </h2>
+  <form>
+    <div class="field is-grouped">
+      <p class="control is-expanded">
+        <input type="file" id="fileUpload" class="input" (change)="incomingfile($event)"
+               placeholder="Upload file" accept=".xlsx">
+      </p>
+      <p class="control">
+        <button type="button" class="button is-info" (click)="Upload()">Upload</button>
+      </p>
     </div>
-    <div class="card-body">
-        <form class="form-inline">
-            <label class="sr-only" for="fileUpload">Select Excel file to upload:</label>
-
-            <input type="file" id="fileUpload" class="form-control" (change)="incomingfile($event)"
-                placeholder="Upload file" accept=".xlsx">
-            <button type="button" class="btn btn-primary ml-4" (click)="Upload()">Upload</button>
-        </form>
-    </div>
+  </form>
 </div>
-
-<div class="card ">
-    <div class="card-header text-center">
-        Create New Vehicle
+<div class="container has-text-centered column is-6 is-offset-3">
+  <a href="https://github.com/ansarnisargill/DemoProjectForTrackingWorld/blob/master/SampleExcel.xlsx" target="_blank" class="button is-primary is-outlined">Get Sample Excel File</a>
+</div>
+<div class="box column is-6 is-offset-3">
+  <div class="has-text-centered">
+    <h2 class="title">
+      Create New Vehicle
+    </h2>
+  </div>
+  <form ngNativeValidate (ngSubmit)="SubmitData(f)" #f="ngForm">
+    <div class="field">
+      <label for="regNo" class="label">Reg No:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="regNo" placeholder="Reg No">
+      </div>
     </div>
-    <div class="card-body">
-        <form class="col-lg-6 col-12 col-md-8 offset-lg-3 offset-md-3" ngNativeValidate (ngSubmit)="SubmitData(f)" #f="ngForm">
-            <input type="text" required ngModel class="form-control m-1" name="regNo" placeholder="Reg No">
-
-            <input type="text" required ngModel class="form-control m-1" name="make" placeholder="Make">
-            <input type="text" required ngModel class="form-control m-1" name="model" placeholder="Model">
-            <input type="text" required ngModel class="form-control m-1" name="color" placeholder="Color">
-            <input type="text" required ngModel class="form-control m-1" name="engineNo" placeholder="Engine No">
-            <input type="text" required ngModel class="form-control m-1" name="chasisNo" placeholder="Chasis No">
-            <input type="date" required ngModel class="form-control m-1" name="dateOfPurchase" placeholder="Date Of Purchase">
-            <select name="active" id="active" ngModel="true" class="form-control m-1">
-                <option value="true" selected>Active</option>
-                <option value="false">Not Active</option>
-            </select>
-
-
-
-            <input type="submit" class="btn btn-outline-primary " value="Save"/>
-        
-            
-        </form>
+    <div class="field">
+      <label for="make" class="label">Make:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="make" placeholder="Make">
+      </div>
     </div>
-    <div class="card-footer">
-        <button class="btn btn-link" (click)="GoBack()"> Go To Main</button>
+    <div class="field">
+      <label for="model" class="label">Model :</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="model" placeholder="Model">
+      </div>
     </div>
+    <div class="field">
+      <label for="color" class="label">Color :</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="color" placeholder="Color">
+      </div>
+    </div>
+    <div class="field">
+      <label for="engineNo" class="lable">Engine No:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="engineNo" placeholder="Engine No">
+      </div>
+    </div>
+    <div class="field">
+      <label for="chasisNo" class="label">Chasis No:</label>
+      <div class="control">
+        <input type="text" required ngModel class="input" name="chasisNo" placeholder="Chasis No">
+      </div>
+    </div>
+    <div class="field">
+      <label for="dateOfPurchase" class="label">Date Of Purchase:</label>
+      <div class="control">
+        <input type="date" required ngModel class="input" name="dateOfPurchase" placeholder="Date Of Purchase">
+      </div>
+    </div>
+    <div class="field">
+      <label for="active" class="label">Active? :</label>
+      <div class="control">
+        <div class="select">
+          <select name="active" id="active" ngModel="true" class="input">
+            <option value="true" selected>Active</option>
+            <option value="false">Not Active</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <input type="submit" class="button is-outlined is-info is-fullwidth" value="Save" />
+    </div>
+  </form>
+</div>
+<br>
+<div class="container has-text-centered" style="margin-bottom: 10px;">
+  <button class="button is-outlined is-primary" (click)="GoBack()"> Go To Main</button>
 </div>

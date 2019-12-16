@@ -1,9 +1,23 @@
-<div *ngIf="ShowLoader" class="col-sm-2" style="margin-left: 45%;">
-    <div class="sp sp-circle"></div>
-    <p>Saving to Database</p>
+<section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Vehicle Registry
+      </h1>
+      <h2 class="subtitle">
+        Extracted data from excel
+      </h2>
+    </div>
   </div>
-  <div *ngIf="!ShowLoader">
-<table  class="table table-stripedtable-hover ">
+</section>
+<br>
+<div *ngIf="ShowLoader" class="column is-4 is-offset-4">
+  <div class="sp sp-circle"></div>
+  <p>Saving to Database</p>
+</div>
+
+<div *ngIf="!ShowLoader" class="box has-text-centered column is-6 is-offset-3">
+  <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
     <thead>
       <tr>
         <th>Reg No</th>
@@ -31,5 +45,8 @@
     </tbody>
 
   </table>
-  <Button class="btn btn-block center btn-danger btn-lg" (click)="SaveAll()" >Save To Database</Button>
+  <button class="button is-outlined is-primary" (click)="SaveAll()">Save To Database</button>
+</div>
+<div class="column is-4 is-offset-4 has-text-centered">
+  <a class="button is-primary is-outlined" routerLink="/home">Go To Main</a>
 </div>

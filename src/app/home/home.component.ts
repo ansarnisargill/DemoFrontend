@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ConnectivityError = false;
   RecordDeleted = false;
 
-  constructor(private vehicleService: VehiclesService, private router: Router) {
+  constructor(public vehicleService: VehiclesService, private router: Router) {
     this.PutDataInTable();
   }
   PutDataInTable() {
@@ -62,5 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/upload');
 
   }
-
+  HideElement(element: HTMLElement) {
+    element.style.display = 'none';
+  }
 }
